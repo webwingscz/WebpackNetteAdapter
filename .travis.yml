@@ -2,16 +2,22 @@ sudo: false
 language: php
 
 php:
-  - 7.0
   - 7.1
   - 7.2
+
+env:
+  - NETTE_VERSION=":^2.4" COMPOSER_ARGS=""
+  - NETTE_VERSION=":^2.4" COMPOSER_ARGS="--prefer-lowest"
+  - NETTE_VERSION=":^3.0" COMPOSER_ARGS=""
 
 before_install:
   - travis_retry composer self-update
 
 install:
-  - travis_retry composer install --no-interaction --prefer-source
-  - travis_retry composer global require "jakub-onderka/php-parallel-lint:^0.9.0" "phpstan/phpstan-shim:^0.9.0"
+  - travis_retry composer require nette/di${NETTE_VERSION} --no-update
+  - travis_retry composer require --dev nette/application${NETTE_VERSION} nette/bootstrap${NETTE_VERSION} latte/latte${NETTE_VERSION} --no-update
+  - travis_retry composer update --no-interaction --prefer-source --prefer-stable $COMPOSER_ARGS
+  - travis_retry composer global require "jakub-onderka/php-parallel-lint:^1.0.0" "phpstan/phpstan-shim:^0.10.0"
 
 before_script:
   - $HOME/.composer/vendor/bin/parallel-lint -e php,phpt --exclude vendor .

@@ -57,7 +57,7 @@ class WebpackExtension extends CompilerExtension
 	}
 
 
-	public function loadConfiguration()
+	public function loadConfiguration(): void
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->validateConfig($this->defaults);
@@ -76,17 +76,16 @@ class WebpackExtension extends CompilerExtension
 
 
 		$builder->addDefinition($this->prefix('pathProvider'))
-			->setClass(PublicPathProvider::class, [$config['build']['publicPath']]);
+			->setFactory(PublicPathProvider::class, [$config['build']['publicPath']]);
 
 		$builder->addDefinition($this->prefix('buildDirProvider'))
-			->setClass(BuildDirectoryProvider::class, [$config['build']['directory']]);
+			->setFactory(BuildDirectoryProvider::class, [$config['build']['directory']]);
 
 		$assetLocator = $builder->addDefinition($this->prefix('assetLocator'))
-			->setClass(AssetLocator::class);
+			->setFactory(AssetLocator::class);
 
 		$builder->addDefinition($this->prefix('devServer'))
-			->setClass(DevServer::class)
-			->setArguments([
+			->setFactory(DevServer::class, [
 				$config['devServer']['enabled'],
 				$config['devServer']['url'] ?? '',
 				new Statement(Client::class)
@@ -97,7 +96,7 @@ class WebpackExtension extends CompilerExtension
 		if ($config['debugger']) {
 			$assetResolver->setAutowired(FALSE);
 			$builder->addDefinition($this->prefix('assetResolver.debug'))
-				->setClass(AssetNameResolver\DebuggerAwareAssetNameResolver::class, [$assetResolver]);
+				->setFactory(AssetNameResolver\DebuggerAwareAssetNameResolver::class, [$assetResolver]);
 		}
 
 		// latte macro
@@ -114,7 +113,7 @@ class WebpackExtension extends CompilerExtension
 	}
 
 
-	public function beforeCompile()
+	public function beforeCompile(): void
 	{
 		$builder = $this->getContainerBuilder();
 
@@ -137,7 +136,7 @@ class WebpackExtension extends CompilerExtension
 		if ($config['manifest']['name'] !== NULL) {
 			if ( ! $config['manifest']['optimize']) {
 				$loader = $builder->addDefinition($this->prefix('manifestLoader'))
-					->setClass(ManifestLoader::class)
+					->setFactory(ManifestLoader::class)
 					->setAutowired(FALSE);
 
 				$assetResolver->setFactory(AssetNameResolver\ManifestAssetNameResolver::class, [

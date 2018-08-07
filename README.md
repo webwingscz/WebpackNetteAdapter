@@ -13,7 +13,7 @@ WebpackNetteAdapter is a tool that helps integrate your Nette Framework applicat
 $ composer require oops/webpack-nette-adapter
 ```
 
-Oops/WebpackNetteAdapter requires PHP >= 7.0.
+Oops/WebpackNetteAdapter requires PHP >= 7.1.
 
 
 ## Usage
