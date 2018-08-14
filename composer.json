@@ -1,5 +1,5 @@
 {
-	"name": "webwingscz/webpack-nette-adapter",
+	"name": "webwings/webpack-nette-adapter",
 	"description": "Webpack adapter for Nette Framework.",
 	"keywords": ["nette", "webpack"],
 	"type": "library",
@@ -39,7 +39,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"webwingscz\\WebpackNetteAdapter\\": "src/"
+			"Oops\\WebpackNetteAdapter\\": "src/"
 		}
 	},
 	"autoload-dev": {
