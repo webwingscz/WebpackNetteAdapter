@@ -1,5 +1,5 @@
 {
-	"name": "oops/webpack-nette-adapter",
+	"name": "webwingscz/webpack-nette-adapter",
 	"description": "Webpack adapter for Nette Framework.",
 	"keywords": ["nette", "webpack"],
 	"type": "library",
@@ -9,11 +9,16 @@
 			"name": "Jiří Pudil",
 			"email": "me@jiripudil.cz",
 			"homepage": "https://jiripudil.cz"
+		},
+		{
+			"name": "Martin Bargl",
+			"email": "bargl@webwings.cz",
+			"homepage": "https://webwings.cz"
 		}
 	],
 	"support": {
-		"email": "me@jiripudil.cz",
-		"issues": "https://github.com/o2ps/WebpackNetteAdapter/issues"
+		"email": "bargl@webwings.cz",
+		"issues": "https://github.com/webwingscz/WebpackNetteAdapter/issues"
 	},
 	"require": {
 		"php": ">= 7.0.0",
@@ -34,7 +39,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Oops\\WebpackNetteAdapter\\": "src/"
+			"webwingscz\\WebpackNetteAdapter\\": "src/"
 		}
 	},
 	"autoload-dev": {
