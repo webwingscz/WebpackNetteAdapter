@@ -1,8 +1,4 @@
-# Oops/WebpackNetteAdapter
-
-[![Build Status](https://img.shields.io/travis/o2ps/WebpackNetteAdapter.svg)](https://travis-ci.org/o2ps/WebpackNetteAdapter)
-[![Downloads this Month](https://img.shields.io/packagist/dm/oops/webpack-nette-adapter.svg)](https://packagist.org/packages/oops/webpack-nette-adapter)
-[![Latest stable](https://img.shields.io/packagist/v/oops/webpack-nette-adapter.svg)](https://packagist.org/packages/oops/webpack-nette-adapter)
+# webwingscz/WebpackNetteAdapter
 
 WebpackNetteAdapter is a tool that helps integrate your Nette Framework application with assets built via Webpack.
 
@@ -10,10 +6,10 @@ WebpackNetteAdapter is a tool that helps integrate your Nette Framework applicat
 ## Installation and requirements
 
 ```bash
-$ composer require oops/webpack-nette-adapter
+$ composer require webwingscz/webpack-nette-adapter
 ```
 
-Oops/WebpackNetteAdapter requires PHP >= 7.0.
+webwingscz/WebpackNetteAdapter requires PHP >= 7.0.
 
 
 ## Usage
@@ -22,7 +18,7 @@ Register the extension in your config file, and configure it. The two `build` op
 
 ```yaml
 extensions:
-	webpack: Oops\WebpackNetteAdapter\DI\WebpackExtension(%debugMode%)
+	webpack: webwingscz\WebpackNetteAdapter\DI\WebpackExtension(%debugMode%)
 
 webpack:
 	build:
