@@ -1,4 +1,4 @@
-# webwingscz/WebpackNetteAdapter
+# webwings/WebpackNetteAdapter
 
 WebpackNetteAdapter is a tool that helps integrate your Nette Framework application with assets built via Webpack.
 
@@ -6,7 +6,7 @@ WebpackNetteAdapter is a tool that helps integrate your Nette Framework applicat
 ## Installation and requirements
 
 ```bash
-$ composer require webwingscz/webpack-nette-adapter
+$ composer require webwings/webpack-nette-adapter
 ```
 
 webwingscz/WebpackNetteAdapter requires PHP >= 7.0.
